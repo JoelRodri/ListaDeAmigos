@@ -1,6 +1,11 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class MostarInfo {
+
+    Scanner sc = new Scanner(System.in);
+
     void mostrar() {
         Titulo titulo = new Titulo();
         titulo.mostrar("CONTACTOS GUARDADOS");
@@ -16,7 +21,7 @@ public class MostarInfo {
         }
 
         System.out.println("NUMERO DEL CONTACTO QUE QUIERES MOSTRAR:");
-        int amigoSeleccionado = Main.sc.nextInt();
+        int amigoSeleccionado = sc.nextInt();
 
         int b = 0;
 
