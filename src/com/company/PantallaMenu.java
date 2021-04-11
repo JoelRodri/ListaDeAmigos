@@ -6,7 +6,7 @@ public class PantallaMenu {
         titulo.mostrar("LISTA DE AMIGOS"); // titulo = "LISTA DE AMIGOS"
 
         Menu menu = new Menu();
-        String[] opciones = {"Crear", "Listar", "Mostrar informacion de amigo", "Salir"};
+        String[] opciones = {"Crear", "Listar", "Mostrar informacion de amigo", "Borrar contacto", "Salir"};
         String opcion = menu.elegirOpcion(opciones);
 
         if ("1".equals(opcion)) {
@@ -18,7 +18,10 @@ public class PantallaMenu {
         } else if ("3".equals(opcion)) {
             MostarInfo mostarInfo = new MostarInfo();
             mostarInfo.mostrar();
-        } else if ("4".equals(opcion)) {
+        } else if ("4".equals(opcion)){
+            BorrarContacto borrarContacto = new BorrarContacto();
+            borrarContacto.mostrar();
+        } else if ("5".equals(opcion)) {
             return false ;
         }
         return true;
