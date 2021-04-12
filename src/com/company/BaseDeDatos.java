@@ -34,14 +34,14 @@ public class BaseDeDatos {
 
     void createTables(){
         try (Statement statement = connection.createStatement()) {
-            statement.execute("CREATE TABLE IF NOT EXISTS estudiantes (nombre text, nota real)");
+            statement.execute("CREATE TABLE IF NOT EXISTS estudiantes (nombre text, apellido text, telefono text, correo text, discord text)");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
     public void insertContacto(String nombre, String apellidos, String telefono, String correo, String discord) {
-        String sql = "INSERT INTO estudiantes(nombre,nota) VALUES(?,?)";
+        String sql = "INSERT INTO estudiantes(nombre,apellidos,telefono,correo,discord) VALUES(?,?,?,?,?)";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, nombre);
@@ -56,7 +56,7 @@ public class BaseDeDatos {
     }
 
     public List<Nota> selectContacto(){
-        String sql = "SELECT nombre, nota FROM estudiantes";
+        String sql = "SELECT nombre, apellidos, telefono, correo, discord FROM estudiantes";
 
         List<Nota> listaEstudiantes = new ArrayList<>();
         try (PreparedStatement preparedStatement  = connection.prepareStatement(sql)){

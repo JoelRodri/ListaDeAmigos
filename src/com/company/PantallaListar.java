@@ -7,7 +7,7 @@ public class PantallaListar {
 
         int a = 1;
 
-        for (Nota nota : Main.listadeamigos.amigos) {
+        for (Nota nota : Main.db.selectContacto()) {
             System.out.print(a + ". ");
             System.out.print(nota.nombre + " ");
             System.out.println(nota.apellidos);
