@@ -1,12 +1,14 @@
 package com.company;
 
+import java.text.Format;
+
 public class PantallaMenu {
     boolean mostrar(){
         Titulo titulo = new Titulo();
         titulo.mostrar("LISTA DE AMIGOS"); // titulo = "LISTA DE AMIGOS"
 
         Menu menu = new Menu();
-        String[] opciones = {"Crear", "Listar", "Mostrar informacion de amigo", "Borrar contacto", "Salir"};
+        String[] opciones = {"Crear", "Listar", "Mostrar informacion de amigo", "Borrar contacto", "Salir", "Formatear"};
         String opcion = menu.elegirOpcion(opciones);
 
         if ("1".equals(opcion)) {
@@ -23,6 +25,9 @@ public class PantallaMenu {
             borrarContacto.mostrar();
         } else if ("5".equals(opcion)) {
             return false;
+        }else if ("6".equals(opcion)){
+            FormatearBase foramatearBase = new FormatearBase();
+            foramatearBase.mostrar();
         }
         return true;
     }

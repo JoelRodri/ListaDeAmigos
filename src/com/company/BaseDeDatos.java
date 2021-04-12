@@ -24,7 +24,7 @@ public class BaseDeDatos {
         return instance;
     }
 
-    void deleteTables(String nombreBorrado, String apellidoBorrado){
+    void deleteTables(){
         try (Statement statement = connection.createStatement()) {
             statement.execute("DROP TABLE IF EXISTS estudiantes");
         } catch (SQLException e) {

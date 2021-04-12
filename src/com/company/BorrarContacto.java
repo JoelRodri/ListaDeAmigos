@@ -1,6 +1,12 @@
 package com.company;
 import java.util.ConcurrentModificationException;
 
+/*
+    TODAVIA NO FUNCIONA
+    TODAVIA NO FUNCIONA
+    TODAVIA NO FUNCIONA
+    TODAVIA NO FUNCIONA
+        */
 
 public class BorrarContacto {
     public void mostrar() {
@@ -42,8 +48,13 @@ public class BorrarContacto {
         }
 
 
-        System.out.println("Para confirmar que quiere borrar el contacto escriba el nombre:");
+        System.out.println("Para confirmar que quiere borrar el contacto escriba los siguientes parametros:");
+        System.out.println("Nombre:");
         String nombre = Main.sc.next();
+
+        System.out.println("ESCRIBA '1'");
+        int numeroBorrar = Main.sc.nextInt();
+        Main.sc.nextLine();
 
         if (!nombre.equals("")){
             Main.db.deleteContacto(nombre);
