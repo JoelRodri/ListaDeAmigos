@@ -12,7 +12,7 @@ public class BorrarContacto {
 
         int a = 1;
 
-        for (Nota nota : Main.listadeamigos.amigos) {
+        for (Nota nota : Main.db.selectContacto()) {
 
             if (nombreEliminado.equals(nota.nombre)){
                 System.out.print(a + ". ");
@@ -24,31 +24,29 @@ public class BorrarContacto {
 
         }
 
-        System.out.println("Que contacto desea eliminar?");
+        System.out.println("Que contacto desea eliminar (numero)?");
 
         int numeroEliminado = Main.sc.nextInt();
 
         int b = 0;
 
-        for (Nota nota : Main.listadeamigos.amigos) {
+        for (Nota nota : Main.db.selectContacto()) {
             if (numeroEliminado == b+1){
-                System.out.print("Nombre:    " + Main.listadeamigos.amigos.get(b).nombre + " ");
-                System.out.println(Main.listadeamigos.amigos.get(b).apellidos);
-                System.out.println("Telefono:  " + Main.listadeamigos.amigos.get(b).telefono);
-                System.out.println("Correo:    " + Main.listadeamigos.amigos.get(b).correo);
-                System.out.println("Discord:   " + Main.listadeamigos.amigos.get(b).discord);
+                System.out.print("Nombre:    " + nota.nombre + " ");
+                System.out.println(nota.apellidos);
+                System.out.println("Telefono:  " + nota.telefono);
+                System.out.println("Correo:    " + nota.correo);
+                System.out.println("Discord:   " + nota.discord);
             }
             b++;
         }
 
 
-        System.out.println("Seguro que quieres eliminar este contacto (S=si / N=no)?");
+        System.out.println("Para confirmar que quiere borrar el contacto escriba el nombre:");
+        String nombre = Main.sc.next();
 
-        String confirm = Main.sc.next();
-        Main.sc.nextLine();
-
-        if (confirm.equals("S")){
-            Main.listadeamigos.amigos.remove(numeroEliminado-1);
+        if (!nombre.equals("")){
+            Main.db.deleteContacto(nombre);
             System.out.println("Contacto eliminado con exito");
         } else{
             System.out.println("Proceso cancelado.");

@@ -24,7 +24,7 @@ public class BaseDeDatos {
         return instance;
     }
 
-    void deleteTables(){
+    void deleteTables(String nombreBorrado, String apellidoBorrado){
         try (Statement statement = connection.createStatement()) {
             statement.execute("DROP TABLE IF EXISTS estudiantes");
         } catch (SQLException e) {
@@ -32,9 +32,19 @@ public class BaseDeDatos {
         }
     }
 
+    void deleteContacto(String nombre){
+        String sql=("DELETE FROM estudiantes WHERE nombre=?;");
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setString(1, nombre);
+        } catch (Exception e){
+            Mensaje mensaje = new Mensaje();
+            mensaje.mostrarWarn("Este contacto no existe");
+        }
+    }
+
     void createTables(){
         try (Statement statement = connection.createStatement()) {
-            statement.execute("CREATE TABLE IF NOT EXISTS estudiantes (nombre text, apellido text, telefono text, correo text, discord text)");
+            statement.execute("CREATE TABLE IF NOT EXISTS estudiantes (nombre text, apellidos text, telefono text, correo text, discord text)");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

@@ -9,10 +9,10 @@ public class Main {
     static BaseDeDatos db = BaseDeDatos.get();
     static ListaDeAmigos listadeamigos = new ListaDeAmigos();
     public static void main(String[] args) {
+        db.createTables();
         PantallaMenu pantallaMenu = new PantallaMenu();
         while (pantallaMenu.mostrar()) {};
 
-        db.deleteTables();
-        db.createTables();
+
     }
 }
