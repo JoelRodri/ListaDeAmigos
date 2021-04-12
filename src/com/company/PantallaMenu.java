@@ -22,7 +22,7 @@ public class PantallaMenu {
             BorrarContacto borrarContacto = new BorrarContacto();
             borrarContacto.mostrar();
         } else if ("5".equals(opcion)) {
-            return false ;
+            return false;
         }
         return true;
     }
